@@ -228,8 +228,7 @@ bool VideoCap::grab(void) {
             }
             // if no RTSP is used or no RTP timestamp <-> NTP walltime mapping is received, make timestamp from local system time
             else {
-                auto now = std::chrono::system_clock::now();
-                this->frame_timestamp = std::chrono::duration<double>(now.time_since_epoch()).count();
+                this->frame_timestamp = 0.0;
             }
 
             this->frame_number++;
